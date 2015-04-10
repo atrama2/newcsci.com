@@ -1,0 +1,52 @@
+html {
+  font-family: Roboto,"Roboto",Helvetica,Arial,sans-serif;
+}
+body {
+	background: #f1f1f1 !important;
+	padding-top: 20px;
+    padding-bottom: 20px;
+    font: 14px;
+}
+.container {
+}
+.navbar {
+	margin-bottom: 20px;
+}
+/** Structure */
+#footer {
+	margin-top: 20px; 
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.main-content {
+	background: #fff;
+	-webkit-box-shadow: 3px 3px 9px 0px rgba(50, 50, 50, 0.36);
+	-moz-box-shadow:    3px 3px 9px 0px rgba(50, 50, 50, 0.36);
+	box-shadow:         3px 3px 9px 0px rgba(50, 50, 50, 0.36);
+}
+/* Panel add content */
+#panel-add-content a:after {
+    font-family:'Glyphicons Halflings';
+    content:"\e235";
+    float: right;
+    color: orange;
+	cursor:pointer;
+}
+#panel-add-content a {
+	cursor:pointer;
+	text-decoration:none;
+	font-weight:400;
+}
+.table-content {
+	font-size: 0.85em;
+}
+
+
+
+
+
+
