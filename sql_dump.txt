@@ -1,1 +1,256 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.11
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 10, 2015 at 09:55 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `mvc`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banners`
+--
+
+CREATE TABLE IF NOT EXISTS `banners` (
+`bnr_id` int(11) NOT NULL,
+  `bnr_name` varchar(100) NOT NULL,
+  `bnr_alt` varchar(255) DEFAULT NULL,
+  `bnr_sort` int(11) NOT NULL,
+  `bnr_img` varchar(255) NOT NULL,
+  `bnr_status` varchar(25) NOT NULL,
+  `pub_date` datetime NOT NULL,
+  `exp_date` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `banners`
+--
+
+INSERT INTO `banners` (`bnr_id`, `bnr_name`, `bnr_alt`, `bnr_sort`, `bnr_img`, `bnr_status`, `pub_date`, `exp_date`) VALUES
+(1, 'test', 'setgsdfgsdfg', 1, 'http://newcsci.com/../../../uploads/images/banner/1.jpg', 'enable', '2015-04-08 17:12:00', '9999-12-31 23:59:00'),
+(2, 'erww', 'werqwerqw', 20, 'http://newcsci.com/../../../uploads/images/banner/2.jpg', 'enable', '2015-04-08 17:14:00', '9999-12-31 23:59:00'),
+(3, 'test', 'ewtw', 20, 'http://newcsci.com/../../../uploads/images/banner/3.jpg', 'enable', '2015-04-08 17:14:00', '9999-12-31 23:59:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE IF NOT EXISTS `category` (
+`category_id` int(11) NOT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `category_description` text,
+  `category_url` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`category_id`, `category_name`, `category_description`, `category_url`) VALUES
+(1, 'Uncategory', NULL, 'uncategory'),
+(2, 'News', NULL, 'news'),
+(3, 'Promotion', NULL, 'promotion');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contents`
+--
+
+CREATE TABLE IF NOT EXISTS `contents` (
+`content_id` int(11) NOT NULL,
+  `content_title` varchar(255) NOT NULL,
+  `into_content` tinytext,
+  `into_image` tinytext,
+  `content` longtext NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `category` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `public_date` datetime NOT NULL,
+  `expire_date` datetime DEFAULT NULL,
+  `hits` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contents`
+--
+
+INSERT INTO `contents` (`content_id`, `content_title`, `into_content`, `into_image`, `content`, `author`, `category`, `status`, `public_date`, `expire_date`, `hits`) VALUES
+(4, 'Review : CSC Wisebook W803T Wifi แท็บเล็ต Windows 8.1 กับราคาสุดประหยัด !!', ' สวัสดีเพื่อนๆ TechXcite ทุกคน กลับมาพบกับบทความรีวิวแท็บเล็ตตัวใหม่ๆ จากทาง ทีมงาน TechXcite', 'http://newcsci.com/../../../uploads/images/news/avg-free.jpg', '<p>&nbsp;สวัสดีเพื่อนๆ&nbsp;TechXcite&nbsp;ทุกคน กลับมาพบกับบทความรีวิวแท็บเล็ตตัวใหม่ๆ จากทาง&nbsp;ทีมงาน TechXcite&nbsp;วันนี้เราอยู่กับแท็บเล็ตราคาประหยัด ที่รันบนระบบปฏิบัติการ&nbsp;Windows 8.1&nbsp;จากทาง&nbsp;CSC&nbsp;มาให้ชมกัน ซึ่งรุ่นที่จะรีวิวในครั้งนี้จะเป็นรุ่น&nbsp;Wisebook W803T Wifi&nbsp;เรามาดูกันดีกว่าว่าจะน่าสนใจมากแค่ไหน ^^</p>\r\n<p><img src="../../../../../uploads/images/news/avg-free.jpg" alt="" width="550" height="310" /></p>', 'Admin', 2, 'public', '2015-04-03 15:41:00', '9999-12-31 00:00:00', '0'),
+(5, '[Review] Padfone S สมาร์ทโฟนสุดคุ้มค่าให้คุณสามารถได้สมาร์ทโฟนระดับเรือธงในราคาไม่ถึงหมื่น', 'ASUSเปิดตัวสมาร์ทโฟนตัวล่าสุดที่สร้างปรากฏการณ์สมาร์ทโฟนสุดคุ้มค่าให้คุณสามารถได้สมาร์ท', 'http://newcsci.com/../../../uploads/images/news/avg-free.jpg', '<p>ASUSเปิดตัวสมาร์ทโฟนตัวล่าสุดที่สร้างปรากฏการณ์สมาร์ทโฟนสุดคุ้มค่าให้คุณสามารถได้สมาร์ทโฟนระดับเรือธงในราคาไม่ถึงหมื่นอย่าง ASUSPadFone Sที่สร้างขึ้นมาอย่างพิถีพิถัน</p>', 'Admin', 2, 'public', '2015-04-07 16:58:00', '9999-12-31 23:59:00', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data`
+--
+
+CREATE TABLE IF NOT EXISTS `data` (
+`id` int(11) NOT NULL,
+  `text` varchar(255) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=138 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `note`
+--
+
+CREATE TABLE IF NOT EXISTS `note` (
+`noteid` int(10) unsigned NOT NULL,
+  `userid` int(10) unsigned NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `content` text NOT NULL,
+  `date_added` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `note`
+--
+
+INSERT INTO `note` (`noteid`, `userid`, `title`, `content`, `date_added`) VALUES
+(11, 1, 'test333333', 'detail', '2015-01-29 23:31:45'),
+(12, 1, 'test', 'rtytry', '2015-01-30 03:01:56'),
+(14, 1, 'fdgdf', 'dfgdgfdgfd', '2015-02-04 23:00:05'),
+(15, 1, 'ดเ้ดเ้', 'กดเ้กด้', '2015-02-25 04:52:19'),
+(16, 1, 'teuyrtyu', 'rtu', '2015-03-02 09:31:41'),
+(17, 1, 'rtuyuyuyyyyyyy', 'yyyyy', '2015-03-02 09:31:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `person`
+--
+
+CREATE TABLE IF NOT EXISTS `person` (
+`personid` int(11) unsigned NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `age` int(3) unsigned NOT NULL,
+  `gender` varchar(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `person`
+--
+
+INSERT INTO `person` (`personid`, `name`, `age`, `gender`) VALUES
+(1, 'JESSE', 24, 'm'),
+(2, 'joe', 22, 'm'),
+(3, 'jenny', 434, 'f');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+`userid` int(11) NOT NULL,
+  `login` varchar(25) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `role` enum('default','admin','owner') NOT NULL DEFAULT 'default'
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userid`, `login`, `password`, `role`) VALUES
+(1, 'jesse', '3327a2154aa1900fa110ae3d20d27d051ba719ead0396f1a23d6865b2677ed4a', 'owner');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `banners`
+--
+ALTER TABLE `banners`
+ ADD PRIMARY KEY (`bnr_id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+ ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `contents`
+--
+ALTER TABLE `contents`
+ ADD PRIMARY KEY (`content_id`);
+
+--
+-- Indexes for table `data`
+--
+ALTER TABLE `data`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `note`
+--
+ALTER TABLE `note`
+ ADD PRIMARY KEY (`noteid`), ADD KEY `userid` (`userid`);
+
+--
+-- Indexes for table `person`
+--
+ALTER TABLE `person`
+ ADD PRIMARY KEY (`personid`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+ ADD PRIMARY KEY (`userid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `banners`
+--
+ALTER TABLE `banners`
+MODIFY `bnr_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `contents`
+--
+ALTER TABLE `contents`
+MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `data`
+--
+ALTER TABLE `data`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=138;
+--
+-- AUTO_INCREMENT for table `note`
+--
+ALTER TABLE `note`
+MODIFY `noteid` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `person`
+--
+ALTER TABLE `person`
+MODIFY `personid` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
